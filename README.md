@@ -72,12 +72,7 @@ docker --help
 |-e, --exec-driver="native"|强制容器使用指定的运行时驱动.例如：docker -d -e lxc|
 |-G, --group="docker"|在后台运行模式下，赋予指定的Group到相应的unix socket上。注意，当此参数 --group 赋予空字符串时，将去除组信息。|
 |-g, --graph="/var/lib/docker"|配置Docker运行时根目录|
-|-H, --host=[]|在后台模式下指定socket绑定，可以绑定一个或多个 tcp://host:port, unix:///path/to/socket, fd://* 或 fd://socketfd。例如：
-               
-               $ docker -H tcp://0.0.0.0:2375 ps 或者
-               
-               $ export DOCKER_HOST="tcp://0.0.0.0:2375"
-               $ docker ps|
+|-H, --host=[]|在后台模式下指定socket绑定，可以绑定一个或多个 tcp://host:port, unix:///path/to/socket, fd://* 或 fd://socketfd。例如：$ docker -H tcp://0.0.0.0:2375 ps 或者 $ export DOCKER_HOST="tcp://0.0.0.0:2375" $ docker ps|
 |--icc=true |启用内联容器的通信.|
 |--ip="0.0.0.0"|容器绑定IP时使用的默认IP地址.|
 |--ip-forward=true|启动容器的 net.ipv4.ip_forward.|
@@ -85,9 +80,7 @@ docker --help
 |--mtu=0|设置容器网络的MTU值，如果没有这个参数，选用默认 route MTU，如果没有默认route，就设置成常量值 1500.|
 |-p, --pidfile="/var/run/docker.pid"|后台进程PID文件路径.|
 |-r, --restart=true|重启之前运行中的容器.|
-|-s, --storage-driver=""|强制容器运行时使用指定的存储驱动，例如,指定使用devicemapper, 可以这样：
-                         
-                         docker -d -s devicemapper|
+|-s, --storage-driver=""|强制容器运行时使用指定的存储驱动，例如,指定使用devicemapper, 可以这样：docker -d -s devicemapper|
 |--selinux-enabled=false|启用selinux支持|
 |--storage-opt=[]|配置存储驱动的参数|
 |--tls=false|启动TLS认证开关|
