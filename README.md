@@ -1,5 +1,5 @@
 <p align="center">
-<img width="130" align="center" src="assets/images/docker.svg" />
+<img width="130" align="center" src="assets/images/docker.png" />
 </p>
 <h1 align="center">docker命令详解</h1>
 
