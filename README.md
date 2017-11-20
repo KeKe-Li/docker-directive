@@ -175,9 +175,23 @@ docker commit -m="First Image" -a="keke" 7a15f99695c0 keke/unbantu:17.10.0
 * -a 指定镜像作者
 * 7a15f99695c0 记住这个是容器id，不是镜像id
 * keke/unbantu:17.10.0 创建的目标镜像名
+
 ```
+1. 在[Docker](https://www.docker.com/) 注册账户，发布的镜像都在[这个页面里](https://cloud.docker.com/repository/list)展示
+2. 将上面做的镜像`unbantu`，起个新的名字`unbantu-test`
 
+```
+docker tag keke/unbantu:17.10.0 keke/unbantu-test:lastest
+```
+3. 登录docker
 
+```
+docker login
+```
+4.上传unbantu镜像
+```
+docker push keke/unbantu-test:lastest
+```
 
 ### 启动容器
 docker容器可以理解为在沙盒中运行的进程。这个沙盒包含了该进程运行所必须的资源，包括文件系统、系统类库、shell 环境等等。但这个沙盒默认是不会运行任何程序的。你需要在沙盒中运行一个进程来启动某一个容器。这个进程是该容器的唯一进程，所以当该进程结束的时候，容器也会完全的停止。
@@ -270,5 +284,118 @@ docker restart Name/ID
 
 9.附加到一个运行的容器上面; --no-stdin=false Do not attach stdin; --sig-proxy=true Proxify all received signal to the process  
 ```
-docker attach ID
+docker attach ID #重新启动并运行一个交互式会话shell
 ```
+注意：attach命令允许你查看或者影响一个运行的容器。你可以在同一时间attach同一个容器。你也可以从一个容器中脱离出来，是从CTRL-C.
+
+### 保存和加载镜像
+当需要把一台机器上的镜像迁移到另一台机器的时候，需要保存镜像与加载镜像。
+
+1.保存镜像到一个tar包; -o, --output="" Write to an file  
+```
+docker save image-name -o file-path 
+```
+
+2.加载一个tar包格式的镜像; -i, --input="" Read from a tar archive file
+```
+docker load -i file-path 
+```
+
+3.从机器A拷贝到机器B
+```
+docker save image-name > /home/keke/main.tar
+
+*使用scp将main.tar拷到机器A上:
+
+docker load < /home/keke/main.tar
+
+```
+
+### 登录
+
+1.登陆registry server; -e, --email="" Email; -p, --password="" Password; -u, --username="" Username
+
+```
+docker login
+```
+
+### 发布docker镜像
+
+```
+docker push new-image-name 
+```
+
+### 构建镜像(Dockerfile + docker build)
+
+```
+FROM ...
+
+RUN ...
+
+# 指定容器内的程序将会使用容器的指定端口
+# 配合 docker run -p
+EXPOSE ...
+
+```
+
+* RUN: 指定镜像被构建时要运行的命令
+* CMD: 指定容器被启动时要运行的命令
+* ENTRYPOINT: 同 CMD ，但不会被 docker run -t 覆盖
+* WORKDIR: CMD/ENTRYPOINT 会在这个目录下执行
+* VOLUME
+* ADD
+* COPY
+
+```
+docker history images-name
+```
+
+1.从新镜像启动容器
+```
+docker run -d -p 4000:80 --name [name] #可以在 Dokcer 宿主机上指定一个具体的端口映射到容器的80端口上
+```
+
+### 守护容器
+
+```
+docker run -d container-name #创建守护容器
+docker top container-name #查看容器内进程
+docker exec container-name touch a.txt #在容器内部运行进程
+docker stop container-name #停止容器
+
+```  
+
+### 关于docker
+觉得此文章不错可以给我star！
+如果还有遇到问题可以加我微信Sen0676备注下来自github,进go实战群详细交流！ 
+
+### 参考资料
+
+### 官方英文资源
+
+- Docker官网：http://www.docker.com
+- Docker windows入门：https://docs.docker.com/windows/
+- Docker Linux 入门：https://docs.docker.com/linux/
+- Docker mac 入门：https://docs.docker.com/mac/
+- Docker 用户指引：https://docs.docker.com/engine/userguide/
+- Docker 官方博客：http://blog.docker.com/
+- Docker Hub: https://hub.docker.com/
+- Docker开源： https://www.docker.com/open-source
+
+### 中文资源
+
+- Docker中文网站：http://www.docker.org.cn
+- Docker中文文档：http://www.dockerinfo.net/document
+- Docker安装手册：http://www.docker.org.cn/book/install.html
+- 一小时Docker教程 ：https://blog.csphere.cn/archives/22
+- Docker中文指南：http://www.widuu.com/chinese_docker/index.html
+
+### 其它资源
+
+- [Docker 快速手册！](https://github.com/eon01/DockerCheatSheet)
+- [Docker 教程](http://www.runoob.com/docker/docker-tutorial.html)
+- [MySQL Docker 单一机器上如何配置自动备份](http://blog.csdn.net/zhangchao19890805/article/details/52756865)
+- https://segmentfault.com/t/docker
+- https://github.com/docker/docker
+- https://wiki.openstack.org/wiki/Docker
+- https://wiki.archlinux.org/index.php/Docker
