@@ -1,4 +1,8 @@
-### docker 详解 (觉得不错请给我star下)
+<p align="center">
+<img width="130" align="center" src="assets/images/logo.svg" style="background:#445D6E"/>
+</p>
+<h1 align="center">docker 命令详解</h1>
+
 ### 此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
 
 ### docker 存在的意义
@@ -98,7 +102,7 @@ docker run -a stdin -a stdout -a stderr -i -t ubuntu /bin/bash
 ```
 
 
-### 查看docker信息（version、info）
+### docker基本
 
 
 1. 查看系统内核 
@@ -155,6 +159,24 @@ docker rmi image-name
 ```
 docker history image-name  
 ```
+
+6.通过容器创建镜像
+
+*从已经创建的容器中更新镜像，并且提交这个镜像
+*使用 Dockerfile 指令来创建一个新的镜像
+下面通过已存在的容器创建一个新的镜像。
+
+```
+docker commit -m="First Image" -a="keke" 7a15f99695c0 keke/unbantu:17.10.0
+
+上面命令参数说明：
+* -m 提交的描述信息
+* -a 指定镜像作者
+* 7a15f99695c0 记住这个是容器id，不是镜像id
+* keke/unbantu:17.10.0 创建的目标镜像名
+```
+
+
 
 ### 启动容器
 docker容器可以理解为在沙盒中运行的进程。这个沙盒包含了该进程运行所必须的资源，包括文件系统、系统类库、shell 环境等等。但这个沙盒默认是不会运行任何程序的。你需要在沙盒中运行一个进程来启动某一个容器。这个进程是该容器的唯一进程，所以当该进程结束的时候，容器也会完全的停止。
