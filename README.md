@@ -1,4 +1,4 @@
-### docker 详解
+### docker 详解此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
 
 ### docker 存在的意义
 
@@ -99,6 +99,7 @@ docker run -a stdin -a stdout -a stderr -i -t ubuntu /bin/bash
 
 ### 查看docker信息（version、info）
 
+
 1. 查看系统内核 
  
 ```
@@ -154,6 +155,19 @@ docker rmi image-name
 docker history image-name  
 ```
 
-6.
+### 启动容器
+docker容器可以理解为在沙盒中运行的进程。这个沙盒包含了该进程运行所必须的资源，包括文件系统、系统类库、shell 环境等等。但这个沙盒默认是不会运行任何程序的。你需要在沙盒中运行一个进程来启动某一个容器。这个进程是该容器的唯一进程，所以当该进程结束的时候，容器也会完全的停止。
 
- 
+1.在容器中安装新的程序  
+```
+docker run image-name apt-get install -y -name
+``` 
+2.在容器中运行"echo"命令，输出"hello word"
+```
+docker run image-name echo "hello word" 
+```
+3.交互式进入容器中 
+```
+docker run -i -t image_name /bin/bash  
+```
+注意:在执行apt-get 命令的时候，要带上-y参数。如果不指定-y参数的话，apt-get命令会进入交互模式，需要用户输入命令来进行确认，但在docker环境中是无法响应这种交互的。apt-get 命令执行完毕之后，容器就会停止，但对容器的改动不会丢失.
