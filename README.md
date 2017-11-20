@@ -58,6 +58,50 @@ docker --help
 
 ```
 
+2.更详细的功能参数配置
+
+| 参数 | 解释 |
+| --------- | --------- |
+|--api-enable-cors=false|开放远程API调用的 CORS 头信息。这个接口开关对想进行二次开发的上层应用提供了支持.|
+|-b, --bridge=""|挂载已经存在的网桥设备到 Docker 容器里。注意，使用 none 可以停用容器里的网络.|
+|--bip=""|使用 CIDR 地址来设定网络桥的 IP。注意，此参数和 -b 不能一起使用.|
+|-D, --debug=false|开启Debug模式。例如：docker -d -D|
+|-d, --daemon=false|开启Daemon模式.|
+|--dns=[]|强制容器使用DNS服务器.例如： docker -d --dns 8.8.8.8|
+|--dns-search=[]|强制容器使用指定的DNS搜索域名.例如： docker -d --dns-search example.com|
+|-e, --exec-driver="native"|强制容器使用指定的运行时驱动.例如：docker -d -e lxc|
+|-G, --group="docker"|在后台运行模式下，赋予指定的Group到相应的unix socket上。注意，当此参数 --group 赋予空字符串时，将去除组信息。|
+|-g, --graph="/var/lib/docker"|配置Docker运行时根目录|
+|-H, --host=[]|在后台模式下指定socket绑定，可以绑定一个或多个 tcp://host:port, unix:///path/to/socket, fd://* 或 fd://socketfd。例如：
+               
+               $ docker -H tcp://0.0.0.0:2375 ps 或者
+               
+               $ export DOCKER_HOST="tcp://0.0.0.0:2375"
+               $ docker ps|
+|--icc=true |启用内联容器的通信.|
+|--ip="0.0.0.0"|容器绑定IP时使用的默认IP地址.|
+|--ip-forward=true|启动容器的 net.ipv4.ip_forward.|
+|--iptables=true|启动Docker容器自定义的iptable规则.|
+|--mtu=0|设置容器网络的MTU值，如果没有这个参数，选用默认 route MTU，如果没有默认route，就设置成常量值 1500.|
+|-p, --pidfile="/var/run/docker.pid"|后台进程PID文件路径.|
+|-r, --restart=true|重启之前运行中的容器.|
+|-s, --storage-driver=""|强制容器运行时使用指定的存储驱动，例如,指定使用devicemapper, 可以这样：
+                         
+                         docker -d -s devicemapper|
+|--selinux-enabled=false|启用selinux支持|
+|--storage-opt=[]|配置存储驱动的参数|
+|--tls=false|启动TLS认证开关|
+|--tlscacert="/Users/dxiao/.docker/ca.pem"|通过CA认证过的的certificate文件路径|
+|--tlscert="/Users/dxiao/.docker/cert.pem"|TLS的certificate文件路径|
+|--tlskey="/Users/dxiao/.docker/key.pem"|TLS的key文件路径|
+|--tlsverify=false|使用TLS并做后台进程与客户端通讯的验证|
+|-v, --version=false|显示版本信息|
+
+*注意：其中带有[] 的启动参数可以指定多次，例如
+```
+docker run -a stdin -a stdout -a stderr -i -t ubuntu /bin/bash
+
+```
 
 
 ### 查看docker信息（version、info）
