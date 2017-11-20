@@ -1,4 +1,5 @@
-### docker 详解此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
+### docker 详解 (觉得不错请给我star下)
+###此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
 
 ### docker 存在的意义
 
@@ -171,3 +172,80 @@ docker run image-name echo "hello word"
 docker run -i -t image_name /bin/bash  
 ```
 注意:在执行apt-get 命令的时候，要带上-y参数。如果不指定-y参数的话，apt-get命令会进入交互模式，需要用户输入命令来进行确认，但在docker环境中是无法响应这种交互的。apt-get 命令执行完毕之后，容器就会停止，但对容器的改动不会丢失.
+
+
+### 查看容器
+
+1.列出当前所有正在运行的container
+```
+docker ps
+```
+
+2.列出所有的container
+```
+docker ps -a  
+```
+
+3.列出最近一次启动的container 
+```
+docker ps -l  
+```
+
+4.保存对容器的修改
+当你对某一个容器做了修改之后（通过在容器中运行某一个命令），可以把对容器的修改保存下来，这样下次可以从保存后的最新状态运行该容器。
+
+1.保存对容器的修改; -a, --author="" Author; -m, --message="" Commit message  
+```
+docker commit ID new-image-name 
+```
+
+5.操作容器
+
+1.删除所有容器 
+```
+docker rm `docker ps -a -q`
+```
+
+2.删除单个容器; -f, --force=false; -l, --link=false Remove the specified link and not the underlying container; -v, --volumes=false Remove the volumes associated to the container  
+```
+docker rm Name/ID 
+```
+
+3.停止、启动、杀死一个容器
+```
+docker stop Name/ID  
+docker start Name/ID  
+docker kill Name/ID 
+```
+
+4.从一个容器中取日志; -f, --follow=false Follow log output; -t, --timestamps=false Show timestamps 
+```
+docker logs Name/ID  
+```
+
+5.列出一个容器里面被改变的文件或者目录，list列表会显示出三种事件，A 增加的，D 删除的，C 被改变的
+```
+docker diff Name/ID
+```
+
+6.显示一个运行的容器里面的进程信息 
+```
+docker top Name/ID  
+```
+
+7.从容器里面拷贝文件/目录到本地一个路径 
+
+```
+docker cp Name:/container-path to-path  
+docker cp ID:/container-path to-path 
+```
+
+8.重启一个正在运行的容器; -t, --time=10 Number of seconds to try to stop for before killing the container, Default=10
+```
+docker restart Name/ID
+```
+
+9.附加到一个运行的容器上面; --no-stdin=false Do not attach stdin; --sig-proxy=true Proxify all received signal to the process  
+```
+docker attach ID
+```
