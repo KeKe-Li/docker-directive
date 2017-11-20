@@ -1,7 +1,8 @@
 <p align="center">
-<img width="130" align="center" src="assets/images/logo.svg" style="background:#445D6E"/>
+<img width="130" align="center" src="assets/images/docker.svg" />
 </p>
-<h1 align="center">docker 命令详解</h1>
+<h1 align="center">docker命令详解</h1>
+
 
 ### 此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
 
