@@ -399,3 +399,6 @@ docker stop container-name #停止容器
 - https://github.com/docker/docker
 - https://wiki.openstack.org/wiki/Docker
 - https://wiki.archlinux.org/index.php/Docker
+
+### License
+  This is free software distributed under the terms of the MIT license
