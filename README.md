@@ -385,18 +385,22 @@ docker stop container-name #停止容器
 
 ### 中文资源
 
-- Docker中文网站：http://www.docker.org.cn
-- Docker中文文档：http://www.dockerinfo.net/document
-- Docker安装手册：http://www.docker.org.cn/book/install.html
-- 一小时Docker教程 ：https://blog.csphere.cn/archives/22
-- Docker中文指南：http://www.widuu.com/chinese_docker/index.html
+* Docker中文网站：http://www.docker.org.cn
+* Docker中文文档：http://www.dockerinfo.net/document
+* Docker安装手册：http://www.docker.org.cn/book/install.html
+* 一小时Docker教程 ：https://blog.csphere.cn/archives/22
+* Docker中文指南：http://www.widuu.com/chinese_docker/index.html
 
 ### 其它资源
 
-- [Docker 快速手册！](https://github.com/eon01/DockerCheatSheet)
-- [Docker 教程](http://www.runoob.com/docker/docker-tutorial.html)
-- [MySQL Docker 单一机器上如何配置自动备份](http://blog.csdn.net/zhangchao19890805/article/details/52756865)
-- https://segmentfault.com/t/docker
-- https://github.com/docker/docker
-- https://wiki.openstack.org/wiki/Docker
-- https://wiki.archlinux.org/index.php/Docker
+* [Docker 快速手册！](https://github.com/eon01/DockerCheatSheet)
+* [Docker 教程](http://www.runoob.com/docker/docker-tutorial.html)
+* [MySQL Docker 单一机器上如何配置自动备份](http://blog.csdn.net/zhangchao19890805/article/details/52756865)
+* [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/content/)
+* https://segmentfault.com/t/docker
+* https://github.com/docker/docker
+* https://wiki.openstack.org/wiki/Docker
+* https://wiki.archlinux.org/index.php/Docker
+
+### License
+  This is free software distributed under the terms of the MIT license
