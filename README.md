@@ -398,7 +398,7 @@ docker stop container-name #停止容器
 * [MySQL Docker 单一机器上如何配置自动备份](http://blog.csdn.net/zhangchao19890805/article/details/52756865)
 * [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/content/)
 * [docker问答](https://segmentfault.com/t/docker)
-* https://github.com/docker/docker
+* [moby](https://github.com/docker/docker)
 * https://wiki.openstack.org/wiki/Docker
 * https://wiki.archlinux.org/index.php/Docker
 
