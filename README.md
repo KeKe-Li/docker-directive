@@ -66,6 +66,7 @@ docker --help
 
 2.更详细的功能参数配置
 
+
 | 参数 | 解释 |
 | --------- | --------- |
 |--api-enable-cors=false|开放远程API调用的 CORS 头信息。这个接口开关对想进行二次开发的上层应用提供了支持.|
@@ -286,7 +287,7 @@ docker restart Name/ID
 ```
 docker attach ID #重新启动并运行一个交互式会话shell
 ```
-注意：attach命令允许你查看或者影响一个运行的容器。你可以在同一时间attach同一个容器。你也可以从一个容器中脱离出来，是从CTRL-C.
+注意：使用这个命令可以挂载正在后台运行的容器，在开发应用的过程中运用这个命令可以随时观察容器內进程的运行状况.
 
 ### 保存和加载镜像
 当需要把一台机器上的镜像迁移到另一台机器的时候，需要保存镜像与加载镜像。
@@ -373,14 +374,14 @@ docker stop container-name #停止容器
 
 ### 官方英文资源
 
-- Docker官网：http://www.docker.com
-- Docker windows入门：https://docs.docker.com/windows/
-- Docker Linux 入门：https://docs.docker.com/linux/
-- Docker mac 入门：https://docs.docker.com/mac/
-- Docker 用户指引：https://docs.docker.com/engine/userguide/
-- Docker 官方博客：http://blog.docker.com/
-- Docker Hub: https://hub.docker.com/
-- Docker开源： https://www.docker.com/open-source
+* Docker官网：http://www.docker.com
+* Docker windows入门：https://docs.docker.com/windows/
+* Docker Linux 入门：https://docs.docker.com/linux/
+* Docker mac 入门：https://docs.docker.com/mac/
+* Docker 用户指引：https://docs.docker.com/engine/userguide/
+* Docker 官方博客：http://blog.docker.com/
+* Docker Hub: https://hub.docker.com/
+* Docker开源： https://www.docker.com/open-source
 
 ### 中文资源
 
