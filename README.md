@@ -4,16 +4,24 @@
 <h1 align="center">docker命令详解</h1>
 
 
-### 此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
+#### 此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
 
-### docker 存在的意义
+#### docker 存在的意义
 
 * 使用dokcer加速本地开发和构建，开发人员可以构建、运行并分享Docker容器，容器可以在开发环境中构建，然后轻松地提交到测试环境中，并最终进入生产环境
 * 能够让独立服务或应用程序在不同环境中，得到相同的运行结果。
 * 用docker 创建隔离环境进行测试
 * docker 可以让开发者先在本机上构建一个复杂的程序测试，而不是一开始就在生产环境进行测试
 
-### docker概念
+####目录
+
+* [docker概念](#docker概念)
+* [Average of array of numbers](#average-of-array-of-numbers)
+
+
+
+
+#### docker概念
 
 * Docker 的常用文档:https://docs.docker.com/
 * Docker 镜像: 用户基于镜像来运行自己的容器，可以把镜像当做容器的『源代码』，镜像体积很小，易于分享、存储和更新
@@ -24,7 +32,7 @@
   * 镜像是 Docker 生命周期中的构建或打包阶段
   * 容器则是启动或执行阶段
 
-### docker的使用命令
+#### docker的使用命令
 
 1 docker 命令介绍
 
@@ -104,7 +112,7 @@ docker run -a stdin -a stdout -a stderr -i -t ubuntu /bin/bash
 ```
 
 
-### docker基本
+#### docker基本
 
 
 1. 查看系统内核 
@@ -131,7 +139,7 @@ docker verison
 docker info
 ```
 
-### 操作docker镜像
+#### 操作docker镜像
 
 1.检索image 
 
@@ -194,7 +202,7 @@ docker login
 docker push keke/unbantu-test:lastest
 ```
 
-### 启动容器
+#### 启动容器
 docker容器可以理解为在沙盒中运行的进程。这个沙盒包含了该进程运行所必须的资源，包括文件系统、系统类库、shell 环境等等。但这个沙盒默认是不会运行任何程序的。你需要在沙盒中运行一个进程来启动某一个容器。这个进程是该容器的唯一进程，所以当该进程结束的时候，容器也会完全的停止。
 
 1.在容器中安装新的程序  
@@ -212,7 +220,7 @@ docker run -i -t image_name /bin/bash
 注意:在执行apt-get 命令的时候，要带上-y参数。如果不指定-y参数的话，apt-get命令会进入交互模式，需要用户输入命令来进行确认，但在docker环境中是无法响应这种交互的。apt-get 命令执行完毕之后，容器就会停止，但对容器的改动不会丢失.
 
 
-### 查看容器
+#### 查看容器
 
 1.列出当前所有正在运行的container
 ```shell
@@ -289,7 +297,7 @@ docker attach ID #重新启动并运行一个交互式会话shell
 ```
 注意：使用这个命令可以挂载正在后台运行的容器，在开发应用的过程中运用这个命令可以随时观察容器內进程的运行状况.
 
-### 保存和加载镜像
+#### 保存和加载镜像
 当需要把一台机器上的镜像迁移到另一台机器的时候，需要保存镜像与加载镜像。
 
 1.保存镜像到一个tar包; -o, --output="" Write to an file  
@@ -312,7 +320,7 @@ docker load < /home/keke/main.tar
 
 ```
 
-### 登录
+#### 登录
 
 1.登陆registry server; -e, --email="" Email; -p, --password="" Password; -u, --username="" Username
 
@@ -320,7 +328,7 @@ docker load < /home/keke/main.tar
 docker login
 ```
 
-### 发布docker镜像
+#### 发布docker镜像
 
 ```shell
 docker push new-image-name 
@@ -328,7 +336,7 @@ docker push new-image-name
 
 
 
-### 构建镜像(Dockerfile + docker build)
+#### 构建镜像(Dockerfile + docker build)
 
 1. Dockerfile文件使用
 
@@ -525,7 +533,7 @@ docker history images-name
 docker run -d -p 4000:80 --name [name] #可以在 Dokcer 宿主机上指定一个具体的端口映射到容器的80端口上
 ```
 
-### 守护容器
+#### 守护容器
 
 ```shell
 docker run -d container-name #创建守护容器
@@ -535,13 +543,13 @@ docker stop container-name #停止容器
 
 ```  
 
-### 关于docker
+#### 关于docker
 觉得此文章不错可以给我star！
 如果还有遇到问题可以加我微信Sen0676备注下来自github,进go实战群详细交流！ 
 
-### 参考资料
+#### 参考资料
 
-### 官方英文资源
+#### 官方英文资源
 
 * Docker官网：http://www.docker.com
 * Docker windows入门：https://docs.docker.com/windows/
@@ -552,7 +560,7 @@ docker stop container-name #停止容器
 * Docker Hub: https://hub.docker.com/
 * Docker开源： https://www.docker.com/open-source
 
-### 中文资源
+#### 中文资源
 
 * Docker中文网站：http://www.docker.org.cn
 * Docker中文文档：http://www.dockerinfo.net/document
@@ -560,7 +568,7 @@ docker stop container-name #停止容器
 * 一小时Docker教程 ：https://blog.csphere.cn/archives/22
 * Docker中文指南：http://www.widuu.com/chinese_docker/index.html
 
-### 其它资源
+#### 其它资源
 
 * [Docker 快速手册！](https://github.com/eon01/DockerCheatSheet)
 * [Docker 教程](http://www.runoob.com/docker/docker-tutorial.html)
@@ -571,5 +579,5 @@ docker stop container-name #停止容器
 * https://wiki.openstack.org/wiki/Docker
 * https://wiki.archlinux.org/index.php/Docker
 
-### License
+#### License
   This is free software distributed under the terms of the MIT license
