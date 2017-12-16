@@ -28,7 +28,7 @@
 
 1 docker 命令介绍
 
-```
+```shell
 docker --help
 
 管理命令:
@@ -98,7 +98,7 @@ docker --help
 |-v, --version=false|显示版本信息|
 
 *注意：其中带有[] 的启动参数可以指定多次，例如
-```
+```shell
 docker run -a stdin -a stdout -a stderr -i -t ubuntu /bin/bash
 
 ```
@@ -109,25 +109,25 @@ docker run -a stdin -a stdout -a stderr -i -t ubuntu /bin/bash
 
 1. 查看系统内核 
  
-```
+```shell
  uname -r
 ```
  
 2. 启动docker 境像
 
-```
+```shell
 systemctl start docker 
 ```
 
 3.查看docker版本  
 
-```
+```shell
 docker verison
 ```
 
 4.显示docker系统的信息 
 
-```
+```shell
 docker info
 ```
 
@@ -135,30 +135,30 @@ docker info
 
 1.检索image 
 
-```
+```shell
 docker search image-name
 ```
 
 2.下载image
 
-```
+```shell
 docker pull image-name
 ```
 
 3.列出镜像列表
 
-```
+```shell
 docker images 
 ```
 4.删除一个或者多个镜像
 
-```
+```shell
 docker rmi image-name
 ```
 
 5.显示一个镜像的历史
 
-```
+```shell
 docker history image-name  
 ```
 
@@ -168,7 +168,7 @@ docker history image-name
 *使用 Dockerfile 指令来创建一个新的镜像
 下面通过已存在的容器创建一个新的镜像。
 
-```
+```shell
 docker commit -m="First Image" -a="keke" 7a15f99695c0 keke/unbantu:17.10.0
 
 上面命令参数说明：
@@ -181,16 +181,16 @@ docker commit -m="First Image" -a="keke" 7a15f99695c0 keke/unbantu:17.10.0
 1. 在[Docker](https://www.docker.com/) 注册账户，发布的镜像都在[这个页面里](https://cloud.docker.com/repository/list)展示
 2. 将上面做的镜像`unbantu`，起个新的名字`unbantu-test`
 
-```
+```shell
 docker tag keke/unbantu:17.10.0 keke/unbantu-test:lastest
 ```
 3. 登录docker
 
-```
+```shell
 docker login
 ```
 4.上传unbantu镜像
-```
+```shell
 docker push keke/unbantu-test:lastest
 ```
 
@@ -198,15 +198,15 @@ docker push keke/unbantu-test:lastest
 docker容器可以理解为在沙盒中运行的进程。这个沙盒包含了该进程运行所必须的资源，包括文件系统、系统类库、shell 环境等等。但这个沙盒默认是不会运行任何程序的。你需要在沙盒中运行一个进程来启动某一个容器。这个进程是该容器的唯一进程，所以当该进程结束的时候，容器也会完全的停止。
 
 1.在容器中安装新的程序  
-```
+```shell
 docker run image-name apt-get install -y -name
 ``` 
 2.在容器中运行"echo"命令，输出"hello word"
-```
+```shell
 docker run image-name echo "hello word" 
 ```
 3.交互式进入容器中 
-```
+```shell
 docker run -i -t image_name /bin/bash  
 ```
 注意:在执行apt-get 命令的时候，要带上-y参数。如果不指定-y参数的话，apt-get命令会进入交互模式，需要用户输入命令来进行确认，但在docker环境中是无法响应这种交互的。apt-get 命令执行完毕之后，容器就会停止，但对容器的改动不会丢失.
@@ -215,17 +215,17 @@ docker run -i -t image_name /bin/bash
 ### 查看容器
 
 1.列出当前所有正在运行的container
-```
+```shell
 docker ps
 ```
 
 2.列出所有的container
-```
+```shell
 docker ps -a  
 ```
 
 3.列出最近一次启动的container 
-```
+```shell
 docker ps -l  
 ```
 
@@ -233,58 +233,58 @@ docker ps -l
 当你对某一个容器做了修改之后（通过在容器中运行某一个命令），可以把对容器的修改保存下来，这样下次可以从保存后的最新状态运行该容器。
 
 1.保存对容器的修改; -a, --author="" Author; -m, --message="" Commit message  
-```
+```shell
 docker commit ID new-image-name 
 ```
 
 5.操作容器
 
 1.删除所有容器 
-```
+```shell
 docker rm `docker ps -a -q`
 ```
 
 2.删除单个容器; -f, --force=false; -l, --link=false Remove the specified link and not the underlying container; -v, --volumes=false Remove the volumes associated to the container  
-```
+```shell
 docker rm Name/ID 
 ```
 
 3.停止、启动、杀死一个容器
-```
+```shell
 docker stop Name/ID  
 docker start Name/ID  
 docker kill Name/ID 
 ```
 
 4.从一个容器中取日志; -f, --follow=false Follow log output; -t, --timestamps=false Show timestamps 
-```
+```shell
 docker logs Name/ID  
 ```
 
 5.列出一个容器里面被改变的文件或者目录，list列表会显示出三种事件，A 增加的，D 删除的，C 被改变的
-```
+```shell
 docker diff Name/ID
 ```
 
 6.显示一个运行的容器里面的进程信息 
-```
+```shell
 docker top Name/ID  
 ```
 
 7.从容器里面拷贝文件/目录到本地一个路径 
 
-```
+```shell
 docker cp Name:/container-path to-path  
 docker cp ID:/container-path to-path 
 ```
 
 8.重启一个正在运行的容器; -t, --time=10 Number of seconds to try to stop for before killing the container, Default=10
-```
+```shell
 docker restart Name/ID
 ```
 
 9.附加到一个运行的容器上面; --no-stdin=false Do not attach stdin; --sig-proxy=true Proxify all received signal to the process  
-```
+```shell
 docker attach ID #重新启动并运行一个交互式会话shell
 ```
 注意：使用这个命令可以挂载正在后台运行的容器，在开发应用的过程中运用这个命令可以随时观察容器內进程的运行状况.
@@ -293,17 +293,17 @@ docker attach ID #重新启动并运行一个交互式会话shell
 当需要把一台机器上的镜像迁移到另一台机器的时候，需要保存镜像与加载镜像。
 
 1.保存镜像到一个tar包; -o, --output="" Write to an file  
-```
+```shell
 docker save image-name -o file-path 
 ```
 
 2.加载一个tar包格式的镜像; -i, --input="" Read from a tar archive file
-```
+```shell
 docker load -i file-path 
 ```
 
 3.从机器A拷贝到机器B
-```
+```shell
 docker save image-name > /home/keke/main.tar
 
 *使用scp将main.tar拷到机器A上:
@@ -316,23 +316,54 @@ docker load < /home/keke/main.tar
 
 1.登陆registry server; -e, --email="" Email; -p, --password="" Password; -u, --username="" Username
 
-```
+```shell
 docker login
 ```
 
 ### 发布docker镜像
 
-```
+```shell
 docker push new-image-name 
 ```
 
-### build镜像
-使用<span class="red">docker build</span>命令或使用<span class="red">Docker Hub</span>的自动构建功能构建Docker镜像时，都需要一个Dockerfile文件。Dockerfile文件是一个由一系列构建指令组成的文本文件，docker build命令会根据这些构建指令完成Docker镜像的构建。本文将会介绍Dockerfile文件，及其中使用的构建指令。
 
 
 ### 构建镜像(Dockerfile + docker build)
 
+1. Dockerfile文件使用
+
+docker build命令会根据Dockerfile文件及上下文构建新Docker镜像。构建上下文是指Dockerfile所在的本地路径或一个URL（Git仓库地址）。构建上下文环境会被递归处理，所以，构建所指定的路径还包括了子目录，而URL还包括了其中指定的子模块。
+
+* 构建镜像
+
+将当前目录做为构建上下文时，可以像下面这样使用docker build命令构建镜像：
+
+```shell
+keke@keke:~/Downloads/hello-system$ sudo docker build .
+Sending build context to Docker daemon  70.14kB
+
 ```
+
+说明：构建会在Docker后台守护进程（daemon）中执行，而不是CLI中。构建前，构建进程会将全部内容（递归）发送到守护进程。大多情况下，应该将一个空目录作为构建上下文环境，并将Dockerfile文件放在该目录下。
+
+在构建上下文中使用的Dockerfile文件，是一个构建指令文件。为了提高构建性能，可以通过.dockerignore文件排除上下文目录下，不需要的文件和目录。
+
+Dockerfile一般位于构建上下文的根目录下，也可以通过-f指定该文件的位置：
+
+```shell
+keke@keke:~$ sudo docker build -f /home/keke/Downloads/hello-system/Dockerfile .
+
+```
+构建时,还可以通过-t参数指定构建成后,镜像的仓库,标签等：
+
+* 镜像标签
+
+```shell
+
+```
+
+
+```dockerfile
 FROM ...
 
 RUN ...
@@ -351,18 +382,18 @@ EXPOSE ...
 * ADD
 * COPY
 
-```
+```shell
 docker history images-name
 ```
 
 1.从新镜像启动容器
-```
+```shell
 docker run -d -p 4000:80 --name [name] #可以在 Dokcer 宿主机上指定一个具体的端口映射到容器的80端口上
 ```
 
 ### 守护容器
 
-```
+```shell
 docker run -d container-name #创建守护容器
 docker top container-name #查看容器内进程
 docker exec container-name touch a.txt #在容器内部运行进程
