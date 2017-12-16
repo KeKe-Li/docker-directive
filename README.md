@@ -326,6 +326,10 @@ docker login
 docker push new-image-name 
 ```
 
+### build镜像
+使用<span class="red">docker build</span>命令或使用<span class="red">Docker Hub</span>的自动构建功能构建Docker镜像时，都需要一个Dockerfile文件。Dockerfile文件是一个由一系列构建指令组成的文本文件，docker build命令会根据这些构建指令完成Docker镜像的构建。本文将会介绍Dockerfile文件，及其中使用的构建指令。
+
+
 ### 构建镜像(Dockerfile + docker build)
 
 ```
