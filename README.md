@@ -23,7 +23,7 @@
 * [保存和加载镜像](#保存和加载镜像)
 * [登录Docker Hub](#登录)
 * [发布docker镜像](#发布docker镜像)
-* [构建镜像](#构建镜像(Dockerfile + docker build))
+* [构建镜像](#构建镜像)
 
 #### docker概念
 
@@ -340,7 +340,7 @@ docker push new-image-name
 
 
 
-#### 构建镜像(Dockerfile + docker build)
+#### 构建镜像
 
 1. Dockerfile文件使用
 
