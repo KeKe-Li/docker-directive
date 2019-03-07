@@ -3,8 +3,7 @@
 </p>
 <h1 align="center">docker命令详解</h1>
 
-
-#### 此次操作都是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
+#### 此次操作系统是在unbantu17.01下进行,docker版本是17.10.0-ce,docker-compose是1.17.1.
 
 #### docker 存在的意义
 
